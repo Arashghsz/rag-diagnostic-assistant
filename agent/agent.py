@@ -6,6 +6,7 @@ from collections import deque
 import os
 import typing
 import openai
+import time
 
 from printer import COLORS, ColorPrinter
 
@@ -31,6 +32,7 @@ class Agent:
         openai_model: str,
         max_tokens_per_call: int,
         max_history: int,
+        timeout: int = 30,  # Add timeout parameter
         **kwargs,
     ) -> None:
         """
@@ -40,6 +42,7 @@ class Agent:
         self._max_tokens = max_tokens_per_call
         self._history: deque[dict[str, str]] = deque()
         self._max_history = max_history
+        self._timeout = timeout
         self._openai_kwargs = kwargs
         self._messages: list[dict[str, str]] = []
 
@@ -92,8 +95,16 @@ class Agent:
         Sends the accumulated messages (permanent and history) to the OpenAI API and
         returns the assistant's full response.
         """
-        messages = self.generate_response(user_message)
-        return "".join(messages)
+        start_time = time.time()
+        try:
+            messages = self.generate_response(user_message)
+            response = "".join(messages)
+            if time.time() - start_time > self._timeout:
+                raise TimeoutError("Response took too long")
+            return response
+        except Exception as e:
+            print(f"Error getting response: {e}")
+            raise
 
 class ColorAgent(Agent):
     """

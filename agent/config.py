@@ -152,5 +152,10 @@ def parse_argument() -> argparse.Namespace:
     )
     parser.add_argument("-m", "--mvp", help="The path to the MVP file.")  # New code
 
-
-    return parser.parse_args()
+    # Use Streamlit to get the arguments
+    args = parser.parse_args()
+    args.config_file = st.text_input("Config File Path", value=args.config_file)
+    args.input = st.text_input("Input File Path", value=args.input)
+    args.mvp = st.text_input("MVP File Path", value=args.mvp)
+    
+    return args

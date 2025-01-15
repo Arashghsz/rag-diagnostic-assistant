@@ -1,55 +1,57 @@
 {
     "agent_order": [
-        "SymptomAnalyzer",
-        "ConditionPredictor",
-        "FollowUpAdvisor"
+        "DiagnosticAgent",
+        "RecommendationAgent",
+        "ExplanationAgent"
     ],
     "agents": [
         {
-            "name": "SymptomAnalyzer",
+            "name": "DiagnosticAgent",
             "color": "GREEN",
             "max_history": 999,
             "system": "",
-            "user": "You are a Symptom Analyzer, responsible for identifying symptoms from patient descriptions and matching them with potential conditions. You have access to the dataset containing symptoms and related conditions.",
+            "user": "You are a medical diagnostic agent. Ask focused questions to understand the patient's condition. Once you have gathered sufficient information, provide a clear diagnosis and mark it with [DIAGNOSIS_COMPLETE]. Only complete the diagnosis when you are confident you have enough information.",
             "tasks": {
-                "1": "Analyze the provided symptoms and list potential conditions from the dataset.",
-                "2": "Identify the most common symptoms and their associated conditions from the dataset.",
-                "3": "Communicate with the ConditionPredictor and FollowUpAdvisor to refine the analysis based on additional data."
+                "1": "Gather information through focused questions",
+                "2": "Analyze responses and identify potential conditions",
+                "3": "Provide diagnosis when sufficient information is gathered"
             },
             "temperature": 0.7,
             "top_p": 0.9
         },
         {
-            "name": "ConditionPredictor",
+            "name": "RecommendationAgent",
             "color": "BLUE",
             "max_history": 999,
             "system": "",
-            "user": "You are a Condition Predictor, responsible for predicting the most likely conditions based on the symptoms provided. You have access to the dataset containing symptoms and related conditions.",
+            "user": "Based on the completed diagnosis, provide clear and specific treatment recommendations. List them as bullet points and end with [RECOMMENDATIONS_COMPLETE].",
             "tasks": {
-                "1": "Predict the most likely conditions based on the provided symptoms from the dataset.",
-                "2": "Use historical data from the dataset to refine condition predictions.",
-                "3": "Collaborate with the SymptomAnalyzer and FollowUpAdvisor to ensure accurate predictions."
+                "1": "Provide immediate treatment recommendations",
+                "2": "Suggest preventive measures",
+                "3": "Offer lifestyle modifications if applicable"
             },
             "temperature": 0.7,
             "top_p": 0.9
         },
         {
-            "name": "FollowUpAdvisor",
+            "name": "ExplanationAgent",
             "color": "YELLOW",
             "max_history": 999,
             "system": "",
-            "user": "You are a Follow-Up Advisor, responsible for suggesting follow-up questions based on the predicted conditions. You have access to the dataset containing symptoms, conditions, and follow-up questions.",
+            "user": "Provide a clear explanation of the diagnosis and recommendations. Explain the reasoning and evidence behind the conclusions. End with [EXPLANATION_COMPLETE].",
             "tasks": {
-                "1": "Suggest follow-up questions based on the predicted conditions from the dataset.",
-                "2": "Identify key follow-up questions that can help refine the diagnosis.",
-                "3": "Work with the SymptomAnalyzer and ConditionPredictor to provide comprehensive follow-up advice."
+                "1": "Explain diagnosis rationale",
+                "2": "Justify recommendations",
+                "3": "Provide additional context"
             },
             "temperature": 0.7,
             "top_p": 0.9
         }
     ],
-    "iterations": 3,
+    "iterations": 1,
     "max_tokens_per_call": 3000,
     "openai_model": "gpt-4o-mini",
+    "openai_embeddings": true,
+    "embedding_threshold": 0.7,
     "dataset": "../dataset/symptoms_data.csv"
 }

@@ -8,16 +8,25 @@ The platform's foundation rests on three main pillars: Symptom Analysis, Conditi
 Agent System Architecture:
 The platform utilizes three specialized AI agents working in concert:
 
-The SymptomAnalyzer focuses on identifying symptoms from patient descriptions and matching them with potential conditions from the dataset. This agent provides a list of potential conditions based on the analyzed symptoms.
+The DiagnosticAgent focuses on identifying symptoms from patient descriptions and asking dynamic follow-up questions to refine the diagnosis. This agent provides a list of potential conditions based on the analyzed symptoms. Tasks include:
+1. Analyze the provided symptoms and list potential conditions from the dataset.
+2. Ask dynamic follow-up questions to refine the diagnosis based on the patient's responses.
+3. Communicate with the RecommendationAgent and ExplanationAgent to refine the analysis based on additional data.
+4. On the first iteration, ask follow-up questions based on the user's initial input.
 
-The ConditionPredictor focuses on predicting the most likely conditions based on the symptoms provided. This agent uses historical data to refine condition predictions and ensure accuracy.
+The RecommendationAgent focuses on providing recommendations based on the predicted conditions. This agent suggests actions or treatments that can help alleviate the symptoms and improve patient care. Tasks include:
+1. Provide recommendations based on the predicted conditions from the dataset.
+2. Suggest actions or treatments that can help alleviate the symptoms.
+3. Collaborate with the DiagnosticAgent and ExplanationAgent to ensure accurate and helpful recommendations.
+4. On the first iteration, collect patient-specific details.
 
-The FollowUpAdvisor focuses on suggesting follow-up questions based on the predicted conditions. This agent provides key follow-up questions that can help refine the diagnosis and ensure comprehensive patient care.
+The ExplanationAgent focuses on explaining the diagnosis and recommendations. This agent provides detailed explanations based on the symptom pattern and typical cases, helping patients understand their condition and the suggested actions. Tasks include:
+1. Explain the diagnosis based on the symptom pattern and typical cases from the dataset.
+2. Provide detailed explanations for the recommended actions or treatments.
+3. Work with the DiagnosticAgent and RecommendationAgent to provide comprehensive explanations.
+4. On the first iteration, explain the process of solving the user's problem with the help of previous agents.
 
 Agent Interactions and Integration:
 The three agents work collaboratively through structured interactions. The Symptom-Condition Integration enables accurate condition predictions based on symptom analysis. The Condition-FollowUp Coordination facilitates comprehensive follow-up advice based on predicted conditions. The FollowUp-Symptom Alignment ensures refined symptom analysis and accurate condition predictions.
 
-Technical Implementation:
-The system features real-time data updates, historical data analysis, machine learning-based predictive modeling, and comprehensive correlation analysis across all variables. The user interface includes interactive dashboards, customizable alerts, mobile-responsive design, and robust data visualization tools. Success is measured through user engagement rates, prediction accuracy, follow-up question relevance, and user satisfaction scores.
-
-This MVP represents a sophisticated integration of symptom analysis, condition prediction, and follow-up advice through specialized agents, providing healthcare providers with comprehensive decision support based on real-world medical data parameters. The platform's success will be determined by its ability to deliver actionable insights that directly impact patient care and outcomes.
+Note: There are only Two iterations, and user input is collected only during the first iteration.
