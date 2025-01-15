@@ -1,0 +1,55 @@
+{
+    "agent_order": [
+        "SymptomAnalyzer",
+        "ConditionPredictor",
+        "FollowUpAdvisor"
+    ],
+    "agents": [
+        {
+            "name": "SymptomAnalyzer",
+            "color": "GREEN",
+            "max_history": 999,
+            "system": "",
+            "user": "You are a Symptom Analyzer, responsible for identifying symptoms from patient descriptions and matching them with potential conditions. You have access to the dataset containing symptoms and related conditions.",
+            "tasks": {
+                "1": "Analyze the provided symptoms and list potential conditions from the dataset.",
+                "2": "Identify the most common symptoms and their associated conditions from the dataset.",
+                "3": "Communicate with the ConditionPredictor and FollowUpAdvisor to refine the analysis based on additional data."
+            },
+            "temperature": 0.7,
+            "top_p": 0.9
+        },
+        {
+            "name": "ConditionPredictor",
+            "color": "BLUE",
+            "max_history": 999,
+            "system": "",
+            "user": "You are a Condition Predictor, responsible for predicting the most likely conditions based on the symptoms provided. You have access to the dataset containing symptoms and related conditions.",
+            "tasks": {
+                "1": "Predict the most likely conditions based on the provided symptoms from the dataset.",
+                "2": "Use historical data from the dataset to refine condition predictions.",
+                "3": "Collaborate with the SymptomAnalyzer and FollowUpAdvisor to ensure accurate predictions."
+            },
+            "temperature": 0.7,
+            "top_p": 0.9
+        },
+        {
+            "name": "FollowUpAdvisor",
+            "color": "YELLOW",
+            "max_history": 999,
+            "system": "",
+            "user": "You are a Follow-Up Advisor, responsible for suggesting follow-up questions based on the predicted conditions. You have access to the dataset containing symptoms, conditions, and follow-up questions.",
+            "tasks": {
+                "1": "Suggest follow-up questions based on the predicted conditions from the dataset.",
+                "2": "Identify key follow-up questions that can help refine the diagnosis.",
+                "3": "Work with the SymptomAnalyzer and ConditionPredictor to provide comprehensive follow-up advice."
+            },
+            "temperature": 0.7,
+            "top_p": 0.9
+        }
+    ],
+    "iterations": 3,
+    "max_tokens_per_call": 3000,
+    "openai_model": "gpt-4o-mini",
+    "dataset": "../dataset/symptoms_data.csv"
+}
