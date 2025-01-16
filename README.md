@@ -16,9 +16,11 @@ An AI-powered healthcare assistant that combines Retrieval-Augmented Generation 
 
 - Python 3.8+
 - OpenAI API key
+- Streamlit
+- Internet connection for API access
 
-## Install the requirements
-- pip install -r requirements.txt
-## Installation
+## Quick Start
 
 1. Clone the repository:
+
+## Workflow Diagram
