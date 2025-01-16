@@ -12,7 +12,7 @@ The DiagnosticAgent focuses on identifying symptoms from patient descriptions an
 1. Analyze the provided symptoms and list potential conditions from the dataset.
 2. Ask dynamic follow-up questions to refine the diagnosis based on the patient's responses.
 3. Communicate with the RecommendationAgent and ExplanationAgent to refine the analysis based on additional data.
-4. On the first iteration, ask follow-up questions based on the user's initial input.
+4. On the first iteration, ask follow-up questions based on the user's initial input and profile.
 
 The RecommendationAgent focuses on providing recommendations based on the predicted conditions. This agent suggests actions or treatments that can help alleviate the symptoms and improve patient care. Tasks include:
 1. Provide recommendations based on the predicted conditions from the dataset.
