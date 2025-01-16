@@ -21,7 +21,8 @@ An AI-powered healthcare assistant that combines Retrieval-Augmented Generation 
 
 ## Quick Start
 
-1. Clone the repository:
+1. Clone the repository: ```bash git clone git@github.com:Arashghsz/rag-diagnostic-assistant.git
+2. install requirements using command : pip install -r requirement.txt
 2. go to rag-diagnostic-assistant\agent\agent.py
 3. use command "streamlit run main.py" to run the project
 4. You can now view your Streamlit app in your browser. Local URL: http://localhost:8502
@@ -119,3 +120,9 @@ The RAG Diagnostic Assistant is structured into several key phases, ensuring a s
 - **Manages user input/output**  
 - **Provides error handling**  
 - **Enables session reset**
+
+### Example of RAG Diagnostic Assistant live chat software
+![RAG Diagnostic Assistant Workflow](output/collecting%20user%20profile.png)
+![RAG Diagnostic Assistant Workflow](output/live%20chat%20with%20diagnostic%20agent.png)
+![RAG Diagnostic Assistant Workflow](output/getting%20response%20from%20RecommendationAgent.png)
+![RAG Diagnostic Assistant Workflow](output/getting%20response%20from%20ExplanationAgent.png)
