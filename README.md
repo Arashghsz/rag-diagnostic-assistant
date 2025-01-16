@@ -22,5 +22,100 @@ An AI-powered healthcare assistant that combines Retrieval-Augmented Generation 
 ## Quick Start
 
 1. Clone the repository:
+2. go to rag-diagnostic-assistant\agent\agent.py
+3. use command "streamlit run main.py" to run the project
+4. You can now view your Streamlit app in your browser. Local URL: http://localhost:8502
 
 ## Workflow Diagram
+
+### Workflow Description
+
+The RAG Diagnostic Assistant is structured into several key phases, ensuring a seamless and effective diagnostic experience. Below is an overview of the workflow:
+
+---
+
+### Initial Setup Phase
+
+- **Load configuration and environment variables**
+- **Initialize knowledge base** with medical dataset
+- **Setup OpenAI API connection**
+- **Initialize session state** for Streamlit
+- **Patient Profile Collection**
+
+---
+
+### Collect Basic Patient Information:
+
+- Age  
+- Gender  
+- Known medical conditions  
+- Current medications  
+- **Store profile in session state**  
+- **Make profile available to all agents**
+
+---
+
+### Diagnostic Phase (DiagnosticAgent)
+
+#### Initial Symptom Collection:
+
+- Iterative questioning process:
+  - **Process patient input**
+  - **Search knowledge base** for relevant information
+  - **Generate appropriate follow-up questions**
+  - Continue until **sufficient information** gathered  
+- **Mark with [DIAGNOSIS_COMPLETE]** when ready
+
+---
+
+### Recommendation Phase (RecommendationAgent)
+
+- Triggered after diagnosis completion  
+- **Reviews entire conversation history**  
+- **Analyzes**: 
+  - Patient profile  
+  - Reported symptoms  
+  - Diagnostic conclusions  
+- **Generates**: 
+  - Immediate relief suggestions  
+  - Long-term management strategies  
+- **Marks completion with [RECOMMENDATIONS_COMPLETE]**
+
+---
+
+### Explanation Phase (ExplanationAgent)
+
+- **Final phase of consultation**  
+- **Reviews entire case**: 
+  - Initial symptoms  
+  - Diagnostic process  
+  - Recommended treatments  
+- **Provides**:
+  - Reasoning behind diagnosis  
+  - Explanation of treatment choices  
+  - Additional context for patient  
+- **Marks completion with [EXPLANATION_COMPLETE]**
+
+---
+
+### Knowledge Base Integration
+
+- **Continuous support** throughout the workflow  
+- **Provides**:
+  - Symptom matching  
+  - Question suggestions  
+  - Condition correlations  
+- **Uses**:
+  - Semantic search  
+  - Embedding-based retrieval  
+  - Cached responses  
+
+---
+
+### Session Management
+
+- **Maintains conversation state**  
+- **Handles transitions between agents**  
+- **Manages user input/output**  
+- **Provides error handling**  
+- **Enables session reset**
