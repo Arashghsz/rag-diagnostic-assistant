@@ -465,12 +465,12 @@ def main() -> None:
     # Render the main conversation interface
     render_conversation_ui(dataset, agents)
     
-    # Add reset button at the bottom
-    st.write("---")
-    if st.button("Start New Consultation"):
-        reset_session()
-        st.session_state['terminal_history'] = ""
-        st.rerun()
+    # # Add reset button at the bottom
+    # st.write("---")
+    # if st.button("Start New Consultation"):
+    #     reset_session()
+    #     st.session_state['terminal_history'] = ""
+    #     st.rerun()
 
 if __name__ == "__main__":
     main()
