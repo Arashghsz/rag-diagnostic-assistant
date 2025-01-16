@@ -126,3 +126,11 @@ The RAG Diagnostic Assistant is structured into several key phases, ensuring a s
 ![RAG Diagnostic Assistant Workflow](output/live%20chat%20with%20diagnostic%20agent.png)
 ![RAG Diagnostic Assistant Workflow](output/getting%20response%20from%20RecommendationAgent.png)
 ![RAG Diagnostic Assistant Workflow](output/getting%20response%20from%20ExplanationAgent.png)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Disclaimer
+
+This tool is for educational purposes only and should not replace professional medical advice. Always consult with healthcare professionals for medical decisions.
