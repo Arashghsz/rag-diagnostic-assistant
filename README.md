@@ -23,7 +23,7 @@ An AI-powered healthcare assistant that combines Retrieval-Augmented Generation 
 
 1. Clone the repository: ```bash git clone git@github.com:Arashghsz/rag-diagnostic-assistant.git
 2. install requirements using command : pip install -r requirement.txt
-2. go to rag-diagnostic-assistant\agent\agent.py
+2. go to rag-diagnostic-assistant\agent
 3. use command "streamlit run main.py" to run the project
 4. You can now view your Streamlit app in your browser. Local URL: http://localhost:8502
 
