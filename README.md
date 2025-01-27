@@ -14,18 +14,61 @@ An AI-powered healthcare assistant that combines Retrieval-Augmented Generation 
 
 ## Prerequisites
 
-- Python 3.8+
+- Python 3.9+
 - OpenAI API key
 - Streamlit
 - Internet connection for API access
 
 ## Quick Start
 
-1. Clone the repository: ```bash git clone git@github.com:Arashghsz/rag-diagnostic-assistant.git
-2. install requirements using command : pip install -r requirement.txt
-2. go to rag-diagnostic-assistant\agent
-3. use command "streamlit run main.py" to run the project
-4. You can now view your Streamlit app in your browser. Local URL: http://localhost:8502
+### Option 1: Running with Docker
+
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:Arashghsz/rag-diagnostic-assistant.git
+   cd rag-diagnostic-assistant
+   ```
+
+2. Ensure your OpenAI API key is set in the .env file
+
+3. Make sure Docker Desktop is installed and running:
+   - Install Docker Desktop from https://www.docker.com/products/docker-desktop
+   - Start Docker Desktop
+   - Wait until Docker Desktop is running (check the whale icon in system tray)
+
+4. Build and run with Docker Compose:
+   ```bash
+   docker-compose up --build
+   ```
+
+5. Access the application at http://localhost:8501
+
+Troubleshooting:
+- If you get a "system cannot find the file specified" error, make sure Docker Desktop is running
+- If Docker Desktop isn't starting, try restarting your computer
+- For Windows users, ensure WSL 2 is installed and enabled
+
+### Option 2: Running Locally(Recommended)
+
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:Arashghsz/rag-diagnostic-assistant.git
+   ```
+
+2. Install requirements:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Ensure your OpenAI API key is set in the .env file
+
+4. Run the application:
+   ```bash
+   cd agent
+   streamlit run main.py
+   ```
+
+5. Access the application at http://localhost:8501
 
 ## Workflow Diagram
 

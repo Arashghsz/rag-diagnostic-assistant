@@ -6,7 +6,7 @@ and parsing command line arguments for the program.
 import argparse
 import json
 import os
-from typing import Any
+from typing import Dict, Any
 
 from agent import ColorAgent
 

@@ -1,27 +1,14 @@
 # Core dependencies
-openai>=0.27.0
-streamlit>=1.24.0
-python-dotenv>=0.19.0
+openai==0.27.0
+streamlit==1.24.0
+python-dotenv==0.19.0
 
-# Data processing and scientific computing
-numpy>=1.21.0
+# Data processing
+numpy==1.21.0
 
-# Vector storage and embedding
-faiss-cpu>=1.7.0
+# Vector storage
+faiss-cpu==1.7.0
 
-# Utilities
-typing-extensions>=4.5.0
-json>=2.0.9
-argparse>=1.4.0
-deque>=1.5.0
-
-# Development tools
-pytest>=6.0.0
-mypy>=0.910
-black>=22.0.0
-
-# Optional performance optimizations
-ujson>=5.7.0
-
-# System dependencies
-watchdog>=3.0.0
+# Required utilities
+colorama==0.4.6
+typing-extensions==4.5.0
